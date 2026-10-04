@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="Ingreso magíster en analítica", page_icon="📊", layout="centered")
+st.set_page_config(page_title="Ingreso magíster en áreas de analítica con empleo formal en Colombia", page_icon="📊", layout="centered")
 
 # ---------------------------------------------------------------- estilos
 st.markdown(
