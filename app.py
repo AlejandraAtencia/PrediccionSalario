@@ -103,7 +103,7 @@ st.markdown(
     f"""
 <div class="hero">
   <p class="etiqueta">Maestría en analítica de datos · Colombia</p>
-  <h1>¿Cuánto podría ganar un magíster en analítica de datos?</h1>
+  <h1>¿Cuánto podría ganar un magíster en áreas de analítica de datos con empleo formal en Colombia?</h1>
   <p>Estima el <b>ingreso laboral mensual</b> (pesos de 2026) de una persona con maestría en matemáticas,
   estadística, bases de datos, sistemas, inteligencia artificial o ciencia de datos y <b>empleo formal</b>.
   Los valores iniciales corresponden a un magíster en ciencia de datos: ajústalos a tu perfil.</p>
