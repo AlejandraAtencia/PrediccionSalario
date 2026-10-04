@@ -1,4 +1,4 @@
-"""App Streamlit: ingreso laboral de magísteres en áreas de analítica de datos con empleo formal (GEIH 2025-2026, DANE)."""
+"""App Streamlit: ingreso laboral de magísteres en áreas de analítica de datos con empleo formal en Colombia(GEIH 2025-2026, DANE)."""
 import joblib
 import numpy as np
 import pandas as pd
