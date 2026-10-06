@@ -1,10 +1,10 @@
-"""App Streamlit: ingreso laboral de magísteres en áreas de analítica de datos con empleo formal en Colombia(GEIH 2025-2026, DANE)."""
+"""App Streamlit: ingreso laboral de profesionales con posgrado y empleo formal en Colombia (GEIH 2025-2026, DANE)."""
 import joblib
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="Ingreso magíster en áreas de analítica con empleo formal en Colombia", page_icon="📊", layout="centered")
+st.set_page_config(page_title="Ingreso con posgrado", page_icon="📊", layout="centered")
 
 # ---------------------------------------------------------------- estilos
 st.markdown(
@@ -54,7 +54,7 @@ st.markdown(
 # ---------------------------------------------------------------- modelo
 @st.cache_resource
 def cargar_modelo():
-    return joblib.load("modelo_ingreso_stem.joblib")
+    return joblib.load("modelo_ingreso_posgrado.joblib")
 
 
 art = cargar_modelo()
@@ -62,15 +62,16 @@ cats, base = art["categorias"], art["perfil_base"]
 
 ETIQUETAS = {
     "EXPERIENCIA": "Experiencia (años cotizando a pensión)", "EDAD": "Edad", "HORAS_SEMANA": "Horas de trabajo por semana",
-    "SEXO": "Sexo", "DEPARTAMENTO": "Departamento", "AREA_FORMACION": "Área de formación de la maestría",
+    "SEXO": "Sexo", "DEPARTAMENTO": "Departamento", "REGION": "Región", "NIVEL": "Nivel de posgrado",
+    "CAMPO_FORMACION": "Campo de formación del posgrado",
     "SECTOR": "Sector económico", "OCUPACION": "Ocupación", "POSICION": "Posición ocupacional",
-    "CONTRATO": "Tipo de contrato", "MODALIDAD": "Lugar de trabajo",
+    "CONTRATO": "Tipo de contrato", "MODALIDAD": "Lugar de trabajo", "TAMANO_EMPRESA": "Tamaño de la empresa",
 }
 RANGOS = {"EXPERIENCIA": (0, 45), "EDAD": (22, 75), "HORAS_SEMANA": (10, 84)}
 SECCIONES = [
     ("👤  Perfil personal", ["EDAD", "SEXO", "EXPERIENCIA"]),
-    ("🎓  Formación y ubicación", ["AREA_FORMACION", "DEPARTAMENTO"]),
-    ("💼  Empleo", ["SECTOR", "OCUPACION", "POSICION", "CONTRATO", "MODALIDAD", "HORAS_SEMANA"]),
+    ("🎓  Formación y ubicación", ["NIVEL", "CAMPO_FORMACION", "DEPARTAMENTO"]),
+    ("💼  Empleo", ["SECTOR", "TAMANO_EMPRESA", "OCUPACION", "POSICION", "CONTRATO", "MODALIDAD", "HORAS_SEMANA"]),
 ]
 
 
@@ -102,10 +103,10 @@ n_reg = f"{int(art['n_registros']):,}".replace(",", ".")
 st.markdown(
     f"""
 <div class="hero">
-  <p class="etiqueta">Maestría en analítica de datos · Colombia</p>
-  <h1>¿Cuánto podría ganar un magíster en áreas de analítica de datos con empleo formal en Colombia?</h1>
-  <p>Estima el <b>ingreso laboral mensual</b> (pesos de 2026) de una persona con maestría en matemáticas,
-  estadística, bases de datos, sistemas, inteligencia artificial o ciencia de datos y <b>empleo formal</b>.
+  <p class="etiqueta">Profesionales con posgrado · Colombia</p>
+  <h1>¿Cuánto podría ganar un profesional con posgrado?</h1>
+  <p>Estima el <b>ingreso laboral mensual</b> (pesos de 2026) de una persona con <b>especialización, maestría o
+  doctorado</b> y <b>empleo formal</b>, según su nivel y campo de formación, su experiencia, su ubicación y su empleo.
   Los valores iniciales corresponden a un magíster en ciencia de datos: ajústalos a tu perfil.</p>
   <div class="chips">
     <span class="chip">Modelo: {art['modelo']}</span>
