@@ -104,7 +104,7 @@ st.markdown(
     f"""
 <div class="hero">
   <p class="etiqueta">Profesionales con posgrado · Colombia</p>
-  <h1>¿Cuánto podría ganar un profesional con posgrado?</h1>
+  <h1>¿Cuánto podría ganar un profesional con posgrado en Colombia?</h1>
   <p>Estima el <b>ingreso laboral mensual</b> (pesos de 2026) de una persona con <b>especialización, maestría o
   doctorado</b> y <b>empleo formal</b>, según su nivel y campo de formación, su experiencia, su ubicación y su empleo.
   Los valores iniciales corresponden a un magíster en ciencia de datos: ajústalos a tu perfil.</p>
